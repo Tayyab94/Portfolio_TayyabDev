@@ -1,736 +1,1098 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Muhammad Tayyab - Senior Full-Stack Developer</title>
     <link rel="stylesheet" href="styles/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
+<body>
+    <!-- Smooth Background Elements -->
+    <div class="bg-elements">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
 
-<body class="main-content">
-    <header class="container header active" id="home">
-        <div class="header-content">
-            <div class="left-header">
-                <div class="h-shape"></div>
-                <div class="image">
-                    <img src="img/hero.png" alt="">
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-icon">
+                    <span>MT</span>
                 </div>
+                <span class="brand-text">Muhammad Tayyab</span>
             </div>
-            <div class="right-header">
-                <h1 class="name">
-                    Hi, I'm <span>Muhammad Tayyab.</span>
-                    A full-stack Web Developer.
-                </h1>
-                <!-- <p>
-                    I'm a Web Developer, I love to create beautiful and functional websites.| ASP.NET Core |MVC 4,5
-                    | Ms-SQL Server | MySQL Server | MongoDB | ReactJS Git | Github
-                </p> -->
-                <div class="btn-con resumedBtn">
-                    <a href="" class="main-btn">
-                        <span class="btn-text">Download CV</span>
-                        <span class="btn-icon"><i class="fas fa-download"></i></span>
-                    </a>
-                </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="btn-primary" onclick="scrollToSection('contact')">
+                    <span>Hire Me</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
-    </header>
-    <main>
-        <section class="container about" id="about">
-            <div class="main-title">
-                <h2>About <span>me</span><span class="bg-text">my stats</span></h2>
-            </div>
-            <div class="about-container">
-                <div class="left-about">
-                    <h4>Information About me</h4>
-                    <p>
-                        I’m graduated in Information Technologyand I've been working with software development in the
-                        .NET platform since 2018. I have experience working with .NET and .NET Core, Blazor, C#,
-                        Reactjs,
-                        Next.js, Azure, EF Core, SQL, Unit Tests, CI/CD and SCRUM teams.<br /><br /> I
-                        love
-                        programming and solving problems and I code as readable and understandable as possible using the
-                        good practices of clean code.
+    </nav>
 
-                        Don't hesitate to message me to get a 𝗰𝗼𝗻𝘀𝘂𝗹𝘁𝗮𝘁𝗶𝗼𝗻 call to discuss your Project.
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <i class="fas fa-circle"></i>
+                        <span>Available for hire</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        <span class="title-greeting">Hello, I'm</span>
+                        <span class="title-name">Muhammad Tayyab</span>
+                        <span class="title-role">Senior Full-Stack Developer</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        I craft exceptional digital experiences with <strong>6+ years</strong> of expertise in 
+                        <strong>.NET Core</strong>, <strong>React</strong>, and <strong>Angular</strong>. 
+                        Passionate about building scalable, high-performance applications that drive business success.
                     </p>
-                    <div class="btn-con resumedBtn">
-                        <a href="#" class="main-btn">
-                            <span class="btn-text">Download CV</span>
-                            <span class="btn-icon"><i class="fas fa-download"></i></span>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="6">0</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="99">0</div>
+                            <div class="stat-label">Success Rate %</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="15">0</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-actions">
+                        <button class="btn-primary" onclick="scrollToSection('projects')">
+                            <span>View My Work</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button class="btn-secondary" onclick="downloadResume()">
+                            <i class="fas fa-download"></i>
+                            <span>Download CV</span>
+                        </button>
+                    </div>
+                    
+                    <div class="hero-social">
+                        <a href="mailto:tayyab.bhatti30@gmail.com" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="tel:+923364978771" class="social-link">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-github"></i>
                         </a>
                     </div>
                 </div>
-                <div class="right-about">
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">650+</p>
-                            <p class="small-text">Projects <br /> Completed</p>
-                        </div>
-                    </div>
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">5+</p>
-                            <p class="small-text">Years of <br /> experience</p>
-                        </div>
-                    </div>
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">300+</p>
-                            <p class="small-text">Happy <br /> Clients</p>
-                        </div>
-                    </div>
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">400+</p>
-                            <p class="small-text">Customer <br /> reviews</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="about-stats">
-                <h4 class="stat-title">My Skills</h4>
-                <div class="progress-bars">
-                    <div class="progress-bar">
-                        <p class="prog-title">html5</p>
-                        <div class="progress-con">
-                            <p class="prog-text">100%</p>
-                            <div class="progress">
-                                <span class="html"></span>
+                
+                <div class="hero-visual">
+                    <div class="profile-card">
+                        <div class="profile-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="status-indicator">
+                                <div class="status-dot"></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">css3</p>
-                        <div class="progress-con">
-                            <p class="prog-text">95%</p>
-                            <div class="progress">
-                                <span class="css"></span>
+                        <div class="floating-elements">
+                            <div class="tech-badge" style="--delay: 0s; --x: 20%; --y: 15%;">
+                                <i class="fab fa-microsoft"></i>
+                                <span>.NET</span>
                             </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">javascript</p>
-                        <div class="progress-con">
-                            <p class="prog-text">90%</p>
-                            <div class="progress">
-                                <span class="js"></span>
+                            <div class="tech-badge" style="--delay: 1s; --x: 80%; --y: 25%;">
+                                <i class="fab fa-react"></i>
+                                <span>React</span>
                             </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Jquery</p>
-                        <div class="progress-con">
-                            <p class="prog-text">99%</p>
-                            <div class="progress">
-                                <span class="Jquery"></span>
+                            <div class="tech-badge" style="--delay: 2s; --x: 15%; --y: 75%;">
+                                <i class="fab fa-angular"></i>
+                                <span>Angular</span>
                             </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Jquery Ajax</p>
-                        <div class="progress-con">
-                            <p class="prog-text">99%</p>
-                            <div class="progress">
-                                <span class="jqueryajax"></span>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="progress-bar">
-                        <p class="prog-title">C#</p>
-                        <div class="progress-con">
-                            <p class="prog-text">99%</p>
-                            <div class="progress">
-                                <span class="csharp"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">AspNet MVC /Core</p>
-                        <div class="progress-con">
-                            <p class="prog-text">100%</p>
-                            <div class="progress">
-                                <span class="mvc"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Entity Framework</p>
-                        <div class="progress-con">
-                            <p class="prog-text">99%</p>
-                            <div class="progress">
-                                <span class="EF"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Web API</p>
-                        <div class="progress-con">
-                            <p class="prog-text">99%</p>
-                            <div class="progress">
-                                <span class="webapis"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="progress-bar">
-                        <p class="prog-title">ReactJS</p>
-                        <div class="progress-con">
-                            <p class="prog-text">90%</p>
-                            <div class="progress">
-                                <span class="react"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">NextJs</p>
-                        <div class="progress-con">
-                            <p class="prog-text">90%</p>
-                            <div class="progress">
-                                <span class="nextjs"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">React Native</p>
-                        <div class="progress-con">
-                            <p class="prog-text">80%</p>
-                            <div class="progress">
-                                <span class="reactnative"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">NodeJS</p>
-                        <div class="progress-con">
-                            <p class="prog-text">90%</p>
-                            <div class="progress">
-                                <span class="node"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Ms-Sql</p>
-                        <div class="progress-con">
-                            <p class="prog-text">90%</p>
-                            <div class="progress">
-                                <span class="mssql"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">MySql</p>
-                        <div class="progress-con">
-                            <p class="prog-text">90%</p>
-                            <div class="progress">
-                                <span class="mysql"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">MongoDb</p>
-                        <div class="progress-con">
-                            <p class="prog-text">90%</p>
-                            <div class="progress">
-                                <span class="mongodb"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Python</p>
-                        <div class="progress-con">
-                            <p class="prog-text">70%</p>
-                            <div class="progress">
-                                <span class="python"></span>
+                            <div class="tech-badge" style="--delay: 3s; --x: 85%; --y: 80%;">
+                                <i class="fas fa-cloud"></i>
+                                <span>Azure</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <h4 class="stat-title">My Timeline</h4>
-            <div class="timeline">
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
 
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <p class="tl-duration">2024 March - present</p>
-                    <h5>Senior Software Engineer<span> - Aventra Group Sdn. Bhd. (Malaysia)</span></h5>
-                    <p>
-                        Aventra Group is a consulting organization based in Malaysia with a strong presence in various
-                        sectors such as energy, information and communication technology, logistics, media and
-                        communications, and maritime operations. The company focuses on digital transformation and
-                        innovation, offering services like data orchestration, application modernization, hybrid IT
-                        managed services, and secured vessel IoT solutions
-                    </p>
-                    <p>
-                    <h4 style="margin: 1rem 0;">Responsibilities</h5>
-                        <ul>
-                            <ol> Lead Software Development Projects
-                            </ol>
-                            <ol>
-                                Design and implement scalable and robust software
-                                architectures to meet business requirements and support future growth.
-                            </ol>
-                            <ol>
-                                Code Review and Quality Assurance
-                            </ol>
-                            <ol>
-                                Client Interaction
-                            </ol>
-                            <ol>
-                                Maintain comprehensive documentation of software designs,
-                                technical specifications, and project progress reports.
-                            </ol>
-                        </ul>
-                        </p>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <p class="tl-duration">2021 - 2024</p>
-                    <h5>Software Developer<span> - Coto Eve World</span></h5>
-                    <p>
-                        Coto’s vision is to empower women creators by cultivating vibrant, self-governing communities
-                        that transcend boundaries. Through this, we unlock limitless opportunities for collaboration and
-                        creativity, while also providing avenues for monetization.Coto’s vision is to empower women
-                        creators by cultivating vibrant, self-governing communities that transcend boundaries. Through
-                        this, we unlock limitless opportunities for collaboration and creativity, while also providing
-                        avenues for monetization.
-                    </p>
-                    <p>
-                    <h4 style="margin: 1rem 0;">Responsibilities</h5>
-                        <ul>
-                            <ol> Enhanced business efficiency through the software lifecycle, achieving over 95%
-                                customer
-                                satisfaction.
-                            </ol>
-                            <ol>
-                                Translated client needs into software solutions, participated in requirement-gathering
-                                sessions, and documented requirements.
-                            </ol>
-                            <ol>
-                                Conducted Scrum and agile meetings, developed APIs for Frontend and Mobile App
-                                Developers.
-                            </ol>
-                            <ol>
-                                Integrated third-party libraries, including Clevertap, and implemented X-Unit test cases
-                                for
-                                project testing.
-                            </ol>
-                            <ol>
-                                Utilized Entity Framework Core for SQL queries
-                            </ol>
-                        </ul>
-                        </p>
-                </div>
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <p class="tl-duration">2018 - 2021</p>
-                    <h5>Full-Stack C# Dev<span> - Ahealo, Inc.</span></h5>
-                    <p>
-                    <ol>
-                        <li>Demonstrated strong problem-solving skills by identifying and addressing technical
-                            challenges,
-                            optimizing code performance, and proposing innovative solutions.
-                        </li>
-                        <li>Developed automated tests for software applications.</li>
-                        <li>Designed efficient algorithms for data analysis and manipulation tasks.</li>
-                        <li>Executed unit testing on new or modified software components.</li>
-                        <li>Participated in design meetings, code reviews, and sprint planning sessions.</li>
-                        <li>Optimized code performance by implementing best practices and standards.</li>
-                        <li>Developed and maintained software applications using .NET framework.</li>
-                        <li>Translated project requirements into technical specifications and designed user interfaces.
-                        </li>
-                        <li>Conducted unit testing, bug fixing, and debugging for high-quality and stable applications.
-                        </li>
-                        <li>Integrated third-party APIs and developed APIs for seamless communication between systems.
-                        </li>
-                        <li>Adhered to coding standards for clean, scalable, and maintainable code.</li>
-                    </ol>
-
-                    </p>
-                </div>
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <p class="tl-duration">2018/p>
-                    <h5>C# .Net Developer (Intern)<span> - Softarena Tech</span></h5>
-                    <p>
-                    </p>
-                </div>
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <p class="tl-duration">2018</p>
-                    <h5>Web Developer<span> - Ozey-Tech</span></h5>
-                    <p>
-                    </p>
-                </div>
-
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">About Me</div>
+                <h2 class="section-title">Passionate Developer with Proven Results</h2>
+                <p class="section-subtitle">
+                    Transforming ideas into powerful digital solutions with cutting-edge technology and innovative thinking.
+                </p>
             </div>
-        </section>
-        <section class="container" id="portfolio">
-            <div class="main-title">
-                <h2>My <span>Portfolio</span><span class="bg-text">My Work</span></h2>
-            </div>
-            <p class="port-text">
-                Here is some of my work that I've done in various programming languages.
-            </p>
-            <div class="portfolios">
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/freshmeet.png" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Dashboard in Reactjs</h3>
-                        <div class="icons">
-                            <a href="https://tayyab94.github.io/dashboard_react/" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/dashboard.png" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Project Source</h3>
-                        <div class="icons">
-                            <a href="https://tayyab94.github.io/frontend-portfolio/" class="icon">
-                                <i class="fab fa-internet-explorer"></i>
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/bobino.png" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Project Source</h3>
-                        <div class="icons">
-                            <a href="https://www.mybobino.com/" class="icon">
-                                <i class="fab fa-internet-explorer"></i>>
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/Lindas.png" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Project Source</h3>
-                        <div class="icons">
-                            <a href="https://lindastiendas.es/" class="icon">
-                                <i class="fab fa-internet-explorer"></i>
-                            </a>
-                            <!-- <a href="#" class="icon">
-                                <i class="fab fa-behance"></i>
-                            </a>
-                            <a href="#" class="icon">
-                                <i class="fab fa-youtube"></i>
-                            </a> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/HomePage.png" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>ERP Mng.</h3>
-                        <div class="icons">
-                            <a href="https://github.com/Tayyab94/CityElectric" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/Recova.png" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Project Source</h3>
-                        <div class="icons">
-                            <a href="https://recovathlete.com/" class="icon">
-                                <i class="fab fa-internet-explorer"></i>
-                            </a>
-                            <!-- <a href="#" class="icon">
-                                <i class="fab fa-behance"></i>
-                            </a>
-                            <a href="#" class="icon">
-                                <i class="fab fa-youtube"></i>
-                            </a> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/littlesquiffy.png" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Project Source</h3>
-                        <div class="icons">
-                            <a href="https://www.littlesquiffy.com.au/" class="icon">
-                                <i class="fab fa-internet-explorer"></i>>
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/code.png" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Custom Coding</h3>
-                        <div class="icons">
-                            <a href="#" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" class="icon">
-                                <i class="fab fa-behance"></i>
-                            </a>
-                            <a href="#" class="icon">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="container" id="blogs">
-            <div class="blogs-content">
-                <div class="main-title">
-                    <h2>My <span>Blogs</span><span class="bg-text">My Blogs</span></h2>
-                </div>
-                <div class="blogs">
-                    <div class="blog">
-                        <img src="img/port6.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                How to Create Your Own Website
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                Doloribus natus voluptas, eos obcaecati recusandae amet?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <img src="img/blog1.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                How to Become an Expert in Web Design
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                Doloribus natus voluptas, eos obcaecati recusandae amet?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <img src="img/blog2.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                Become a Web Designer in 10 Days
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                Doloribus natus voluptas, eos obcaecati recusandae amet?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <img src="img/blog3.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                Debbuging made easy with Web Inspector
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                Doloribus natus voluptas, eos obcaecati recusandae amet?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <img src="img/port1.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                Get started with Web Design and UI Design
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                Doloribus natus voluptas, eos obcaecati recusandae amet?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <img src="img/port3.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                This is what you need to know about Web Design
-                            </h4>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                Doloribus natus voluptas, eos obcaecati recusandae amet?
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="container contact" id="contact">
-            <div class="contact-container">
-                <div class="main-title">
-                    <h2>Contact <span>Me</span><span class="bg-text">Contact</span></h2>
-                </div>
-                <div class="contact-content-con">
-                    <div class="left-contact">
-                        <h4>Contact me here</h4>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="text-block">
+                        <h3>Professional Excellence</h3>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            In, laborum numquam? Quam excepturi perspiciatis quas quasi.
+                            With <strong>6+ years</strong> of hands-on experience, I specialize in creating 
+                            high-performance, scalable applications that drive business success. My expertise 
+                            spans across <strong>.NET Core/6+</strong>, <strong>C#</strong>, <strong>ReactJS</strong>, 
+                            and <strong>Angular</strong>, enabling me to deliver comprehensive end-to-end solutions.
                         </p>
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <div class="icon">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <span>Location</span>
-                                </div>
-                                <p>
-                                    : Pakistan, Lahore
-                                </p>
+                    </div>
+                    
+                    <div class="text-block">
+                        <h3>Proven Track Record</h3>
+                        <p>
+                            I've successfully optimized system performance by <strong>25-30%</strong>, achieved 
+                            <strong>98% deployment success rates</strong> through robust CI/CD pipelines, and 
+                            reduced production issues by <strong>20%</strong> using Agile methodologies and 
+                            SOLID principles.
+                        </p>
+                    </div>
+                    
+                    <div class="achievements-grid">
+                        <div class="achievement-item">
+                            <div class="achievement-icon">
+                                <i class="fas fa-trophy"></i>
                             </div>
-                            <div class="contact-item">
-                                <div class="icon">
-                                    <i class="fas fa-envelope"></i>
-                                    <span>Email</span>
-                                </div>
-                                <p>
-                                    <span>: tayyab.bhatti30@gmail.com</span>
-                                </p>
-                            </div>
-                            <div class="contact-item">
-                                <div class="icon">
-                                    <i class="fas fa-user-graduate"></i>
-                                    <span>Education</span>
-                                </div>
-                                <p>
-                                    <span>: Univesity Of The Punjab, Lahore</span>
-                                </p>
-                            </div>
-                            <div class="contact-item">
-                                <div class="icon">
-                                    <i class="fas fa-user-graduate"></i>
-                                    <span>Mobile Number</span>
-                                </div>
-                                <p>
-                                    <span>: +923364978771</span>
-                                </p>
-                            </div>
-                            <div class="contact-item">
-                                <div class="icon">
-                                    <i class="fas fa-globe-africa"></i>
-                                    <span>Languages</span>
-                                </div>
-                                <p>
-                                    <span>: Urdu, English</span>
-                                </p>
+                            <div class="achievement-content">
+                                <h4>99% Success Rate</h4>
+                                <p>Customer Satisfaction</p>
                             </div>
                         </div>
-                        <div class="contact-icons">
-                            <div class="contact-icon">
-                                <a href="www.facebook.com" target="_blank">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="#" target="_blank">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="https://github.com/Tayyab94" target="_blank">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" target="_blank">
-                                    <i class="fab fa-youtube"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/in/mtayyab94/" target="_blank">
-                                    <i class="fab fa-linkedin"></i>
-                                </a>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="achievement-content">
+                                <h4>30% Performance</h4>
+                                <p>Optimization Achieved</p>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="achievement-content">
+                                <h4>Team Leadership</h4>
+                                <p>Cross-functional Teams</p>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="achievement-content">
+                                <h4>Clean Code</h4>
+                                <p>Best Practices</p>
                             </div>
                         </div>
                     </div>
-                    <div class="right-contact">
-                        <form action="" class="contact-form">
-                            <div class="input-control i-c-2">
-                                <input type="text" required placeholder="YOUR NAME">
-                                <input type="email" required placeholder="YOUR EMAIL">
+                </div>
+                
+                <div class="about-visual">
+                    <div class="skills-preview">
+                        <div class="skill-ring">
+                            <div class="skill-center">
+                                <div class="skill-percentage">95%</div>
+                                <div class="skill-name">Overall</div>
                             </div>
-                            <div class="input-control">
-                                <input type="text" required placeholder="ENTER SUBJECT">
+                            <svg class="skill-circle" viewBox="0 0 200 200">
+                                <circle cx="100" cy="100" r="90" class="skill-bg"></circle>
+                                <circle cx="100" cy="100" r="90" class="skill-progress" style="--progress: 95;"></circle>
+                            </svg>
+                        </div>
+                        <div class="skill-labels">
+                            <div class="skill-label">
+                                <span class="skill-dot" style="--color: #3b82f6;"></span>
+                                <span>Backend Development</span>
                             </div>
-                            <div class="input-control">
-                                <textarea name="" id="" cols="15" rows="8" placeholder="Message Here..."></textarea>
+                            <div class="skill-label">
+                                <span class="skill-dot" style="--color: #10b981;"></span>
+                                <span>Frontend Development</span>
                             </div>
-                            <div class="submit-btn resumedBtn">
-                                <a href="#" class="main-btn">
-                                    <span class="btn-text">Download CV</span>
-                                    <span class="btn-icon"><i class="fas fa-download"></i></span>
-                                </a>
+                            <div class="skill-label">
+                                <span class="skill-dot" style="--color: #f59e0b;"></span>
+                                <span>Cloud & DevOps</span>
                             </div>
-                        </form>
+                            <div class="skill-label">
+                                <span class="skill-dot" style="--color: #ef4444;"></span>
+                                <span>Database Design</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <div class="controls">
-        <div class="control active-btn" data-id="home">
-            <i class="fas fa-home"></i>
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Technical Expertise</div>
+                <h2 class="section-title">Skills & Technologies</h2>
+                <p class="section-subtitle">
+                    Comprehensive expertise across modern development stack with focus on scalable solutions.
+                </p>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3>Backend Development</h3>
+                        <div class="category-badge">Expert</div>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">.NET Core 6/7/8</span>
+                                <span class="skill-level">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">C# & ASP.NET</span>
+                                <span class="skill-level">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="92"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Web APIs & Microservices</span>
+                                <span class="skill-level">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Entity Framework Core</span>
+                                <span class="skill-level">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Frontend Development</h3>
+                        <div class="category-badge">Advanced</div>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">ReactJS</span>
+                                <span class="skill-level">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Angular</span>
+                                <span class="skill-level">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">TypeScript</span>
+                                <span class="skill-level">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Modern CSS & Responsive Design</span>
+                                <span class="skill-level">82%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="82"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Database & Storage</h3>
+                        <div class="category-badge">Expert</div>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">SQL Server</span>
+                                <span class="skill-level">93%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="93"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">PostgreSQL</span>
+                                <span class="skill-level">87%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="87"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">MongoDB</span>
+                                <span class="skill-level">84%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="84"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Redis & Caching</span>
+                                <span class="skill-level">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Cloud & DevOps</h3>
+                        <div class="category-badge">Advanced</div>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Microsoft Azure</span>
+                                <span class="skill-level">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">AWS Services</span>
+                                <span class="skill-level">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Docker & Containerization</span>
+                                <span class="skill-level">78%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="78"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">CI/CD Pipelines</span>
+                                <span class="skill-level">82%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="82"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="control" data-id="about">
-            <i class="fas fa-user"></i>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Career Journey</div>
+                <h2 class="section-title">Professional Experience</h2>
+                <p class="section-subtitle">
+                    A track record of delivering exceptional results across diverse industries and challenging projects.
+                </p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="job-card">
+                            <div class="job-header">
+                                <div class="job-info">
+                                    <h3 class="job-title">Senior Full Stack Engineer</h3>
+                                    <div class="company-info">
+                                        <span class="company-name">Aventra Group</span>
+                                        <span class="job-location">Malaysia</span>
+                                    </div>
+                                    <div class="job-period">Feb 2024 - Present</div>
+                                </div>
+                                <div class="job-status current">
+                                    <span class="status-dot"></span>
+                                    <span>Current</span>
+                                </div>
+                            </div>
+                            <p class="job-description">
+                                Leading software development projects with 99% customer satisfaction. 
+                                Designing scalable architectures and mentoring junior engineers in 
+                                Malaysia's leading consulting organization.
+                            </p>
+                            <div class="job-achievements">
+                                <div class="achievement">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Enhanced business efficiency using C# and ASP.NET Core</span>
+                                </div>
+                                <div class="achievement">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Achieved over 99% customer satisfaction</span>
+                                </div>
+                                <div class="achievement">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Led cross-functional teams and mentored junior developers</span>
+                                </div>
+                            </div>
+                            <div class="tech-stack">
+                                <span class="tech-tag">.NET Core</span>
+                                <span class="tech-tag">C#</span>
+                                <span class="tech-tag">Azure</span>
+                                <span class="tech-tag">SQL Server</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="job-card">
+                            <div class="job-header">
+                                <div class="job-info">
+                                    <h3 class="job-title">Software Backend Developer</h3>
+                                    <div class="company-info">
+                                        <span class="company-name">Coto Eve World</span>
+                                        <span class="job-location">Remote</span>
+                                    </div>
+                                    <div class="job-period">Dec 2021 - Feb 2024</div>
+                                </div>
+                                <div class="job-status completed">
+                                    <span class="status-dot"></span>
+                                    <span>Completed</span>
+                                </div>
+                            </div>
+                            <p class="job-description">
+                                Developed interactive dashboards using Angular 12+ and ASP.NET Core APIs. 
+                                Built SPA features empowering women creators with monetization opportunities.
+                            </p>
+                            <div class="job-achievements">
+                                <div class="achievement">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Achieved 95% customer satisfaction</span>
+                                </div>
+                                <div class="achievement">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Integrated Angular with ASP.NET Core APIs</span>
+                                </div>
+                                <div class="achievement">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Successfully integrated AWS facial recognition</span>
+                                </div>
+                            </div>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Angular 12+</span>
+                                <span class="tech-tag">ASP.NET Core</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">AWS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="job-card">
+                            <div class="job-header">
+                                <div class="job-info">
+                                    <h3 class="job-title">Associate Software Engineer</h3>
+                                    <div class="company-info">
+                                        <span class="company-name">Ahealo Tech</span>
+                                        <span class="job-location">Remote</span>
+                                    </div>
+                                    <div class="job-period">Jan 2019 - Dec 2021</div>
+                                </div>
+                                <div class="job-status completed">
+                                    <span class="status-dot"></span>
+                                    <span>Completed</span>
+                                </div>
+                            </div>
+                            <p class="job-description">
+                                Developed comprehensive medical platform using C# MVC Core. 
+                                Integrated payment gateways and optimized system performance by 25-30%.
+                            </p>
+                            <div class="job-achievements">
+                                <div class="achievement">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Optimized code performance by 25-30%</span>
+                                </div>
+                                <div class="achievement">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Developed automated testing frameworks</span>
+                                </div>
+                                <div class="achievement">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Integrated secure payment gateways</span>
+                                </div>
+                            </div>
+                            <div class="tech-stack">
+                                <span class="tech-tag">C# MVC</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">jQuery</span>
+                                <span class="tech-tag">Payment Gateway</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="control" data-id="portfolio">
-            <i class="fas fa-briefcase"></i>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Portfolio</div>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">
+                    Showcasing innovative solutions that demonstrate technical excellence and business impact.
+                </p>
+            </div>
+            
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="enterprise">Enterprise</button>
+                <button class="filter-btn" data-filter="social">Social Platform</button>
+                <button class="filter-btn" data-filter="healthcare">Healthcare</button>
+                <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card" data-category="enterprise">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <button class="project-link" title="View Live">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                                <button class="project-link" title="View Details">
+                                    <i class="fas fa-info-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="project-placeholder">
+                            <i class="fas fa-building"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Aventra Digital Platform</h3>
+                            <span class="project-category">Enterprise</span>
+                        </div>
+                        <p class="project-description">
+                            Enterprise-level consulting platform for digital transformation services 
+                            with advanced analytics and real-time reporting capabilities.
+                        </p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="metric-value">1000+</span>
+                                <span class="metric-label">Users</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">99%</span>
+                                <span class="metric-label">Uptime</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">50ms</span>
+                                <span class="metric-label">Response</span>
+                            </div>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">.NET Core</span>
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">Azure</span>
+                            <span class="tech-tag">SQL Server</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="social">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <button class="project-link" title="View Live">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                                <button class="project-link" title="View Details">
+                                    <i class="fas fa-info-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="project-placeholder">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Coto Creator Community</h3>
+                            <span class="project-category">Social Platform</span>
+                        </div>
+                        <p class="project-description">
+                            Platform empowering women creators with monetization opportunities, 
+                            featuring real-time chat and advanced content management.
+                        </p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="metric-value">5000+</span>
+                                <span class="metric-label">Creators</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">$2M+</span>
+                                <span class="metric-label">Revenue</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">95%</span>
+                                <span class="metric-label">Satisfaction</span>
+                            </div>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Angular 12+</span>
+                            <span class="tech-tag">ASP.NET Core</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">AWS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="healthcare">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <button class="project-link" title="View Demo">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <button class="project-link" title="Case Study">
+                                    <i class="fas fa-file-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="project-placeholder">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Ahealo Medical Platform</h3>
+                            <span class="project-category">Healthcare</span>
+                        </div>
+                        <p class="project-description">
+                            Comprehensive healthcare platform with Admin, Doctor, Patient, and Trainer 
+                            modules featuring telemedicine and appointment management.
+                        </p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="metric-value">500+</span>
+                                <span class="metric-label">Doctors</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">10K+</span>
+                                <span class="metric-label">Patients</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">30%</span>
+                                <span class="metric-label">Faster</span>
+                            </div>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">C# MVC</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">jQuery</span>
+                            <span class="tech-tag">Payment Gateway</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="ecommerce">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <button class="project-link" title="View Live">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                                <button class="project-link" title="View Details">
+                                    <i class="fas fa-info-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="project-placeholder">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">E-Commerce Platform</h3>
+                            <span class="project-category">E-Commerce</span>
+                        </div>
+                        <p class="project-description">
+                            Full-featured online shopping platform with advanced search, 
+                            payment integration, and comprehensive inventory management.
+                        </p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="metric-value">1000+</span>
+                                <span class="metric-label">Products</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">500+</span>
+                                <span class="metric-label">Orders/day</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">98%</span>
+                                <span class="metric-label">Success Rate</span>
+                            </div>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">ReactJS</span>
+                            <span class="tech-tag">.NET Core</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Stripe</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="enterprise">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <button class="project-link" title="View Demo">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <button class="project-link" title="Case Study">
+                                    <i class="fas fa-file-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="project-placeholder">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">HR Management System</h3>
+                            <span class="project-category">Enterprise</span>
+                        </div>
+                        <p class="project-description">
+                            Complete HR solution with employee management, payroll processing, 
+                            performance tracking, and advanced analytics dashboard.
+                        </p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="metric-value">2000+</span>
+                                <span class="metric-label">Employees</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">40%</span>
+                                <span class="metric-label">Time Saved</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">100%</span>
+                                <span class="metric-label">Accuracy</span>
+                            </div>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">.NET Core</span>
+                            <span class="tech-tag">SQL Server</span>
+                            <span class="tech-tag">Azure</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="enterprise">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <button class="project-link" title="View Live">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                                <button class="project-link" title="View Details">
+                                    <i class="fas fa-info-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="project-placeholder">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">ERP Electronics Business</h3>
+                            <span class="project-category">Enterprise</span>
+                        </div>
+                        <p class="project-description">
+                            Enterprise resource planning system for electronics business with 
+                            inventory management, sales tracking, and financial reporting.
+                        </p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="metric-value">50K+</span>
+                                <span class="metric-label">Products</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">25%</span>
+                                <span class="metric-label">Cost Reduction</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">99.9%</span>
+                                <span class="metric-label">Reliability</span>
+                            </div>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">.NET Core</span>
+                            <span class="tech-tag">SQL Server</span>
+                            <span class="tech-tag">Azure</span>
+                            <span class="tech-tag">Power BI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- <div class="control" data-id="blogs">
-            <i class="far fa-newspaper"></i>
-        </div> -->
-        <div class="control" data-id="contact">
-            <i class="fas fa-envelope-open"></i>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Get In Touch</div>
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="section-subtitle">
+                    Ready to bring your next project to life? Let's discuss how I can help you build amazing software solutions.
+                </p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>tayyab.bhatti30@gmail.com</p>
+                            <a href="mailto:tayyab.bhatti30@gmail.com" class="contact-link">
+                                Send Message <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <p>+92 336 4978771</p>
+                            <a href="tel:+923364978771" class="contact-link">
+                                Call Now <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>Available Worldwide</p>
+                            <span class="contact-link">
+                                Remote Work <i class="fas fa-globe"></i>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="availability-card">
+                        <div class="availability-header">
+                            <div class="availability-status">
+                                <div class="status-dot"></div>
+                                <span>Available for hire</span>
+                            </div>
+                        </div>
+                        <div class="availability-content">
+                            <h4>Ready to start your project?</h4>
+                            <p>I'm currently available for new opportunities and exciting projects. Let's discuss your requirements!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-header">
+                            <h3>Send me a message</h3>
+                            <p>I'll get back to you within 24 hours</p>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="theme-btn">
-        <i class="fas fa-adjust"></i>
-    </div>
-    <script src="app.js"></script>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand-icon">
+                        <span>MT</span>
+                    </div>
+                    <div class="brand-info">
+                        <h3>Muhammad Tayyab</h3>
+                        <p>Senior Full-Stack Developer crafting exceptional digital experiences</p>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Navigation</h4>
+                        <a href="#home">Home</a>
+                        <a href="#about">About</a>
+                        <a href="#skills">Skills</a>
+                        <a href="#projects">Projects</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Services</h4>
+                        <a href="#">Full-Stack Development</a>
+                        <a href="#">API Development</a>
+                        <a href="#">Cloud Solutions</a>
+                        <a href="#">Consulting</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Connect</h4>
+                        <a href="mailto:tayyab.bhatti30@gmail.com">Email</a>
+                        <a href="tel:+923364978771">Phone</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-line"></div>
+                <div class="footer-info">
+                    <p>&copy; 2024 Muhammad Tayyab. All rights reserved.</p>
+                    <p>Built with passion and modern web technologies</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
-
 </html>
