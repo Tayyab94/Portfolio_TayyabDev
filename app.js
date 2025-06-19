@@ -1,860 +1,398 @@
 // Mobile Navigation Toggle
-class CyberNav {
-  constructor() {
-    this.nav = document.querySelector(".cyber-nav")
-    this.toggle = document.getElementById("nav-toggle")
-    this.menu = document.getElementById("nav-menu")
-    this.links = document.querySelectorAll(".nav-link")
+const navToggle = document.getElementById("nav-toggle")
+const navMenu = document.getElementById("nav-menu")
 
-    this.init()
-  }
+navToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("active")
+  navToggle.classList.toggle("active")
+})
 
-  init() {
-    // Mobile toggle
-    this.toggle.addEventListener("click", () => {
-      this.menu.classList.toggle("active")
-      this.toggle.classList.toggle("active")
-    })
+// Close mobile menu when clicking on a link
+document.querySelectorAll(".nav-link").forEach((link) => {
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("active")
+    navToggle.classList.remove("active")
+  })
+})
 
-    // Close menu on link click
-    this.links.forEach((link) => {
-      link.addEventListener("click", () => {
-        this.menu.classList.remove("active")
-        this.toggle.classList.remove("active")
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault()
+    const target = document.querySelector(this.getAttribute("href"))
+    if (target) {
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
       })
-    })
-
-    // Navbar background on scroll
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 100) {
-        this.nav.style.background = "rgba(10, 10, 10, 0.95)"
-        this.nav.style.boxShadow = "0 5px 20px rgba(0, 255, 255, 0.2)"
-      } else {
-        this.nav.style.background = "rgba(10, 10, 10, 0.9)"
-        this.nav.style.boxShadow = "none"
-      }
-    })
-
-    // Active section highlighting
-    this.highlightActiveSection()
-  }
-
-  highlightActiveSection() {
-    const sections = document.querySelectorAll("section[id]")
-
-    window.addEventListener("scroll", () => {
-      const scrollPos = window.scrollY + 100
-
-      sections.forEach((section) => {
-        const top = section.offsetTop
-        const height = section.offsetHeight
-        const id = section.getAttribute("id")
-
-        if (scrollPos >= top && scrollPos < top + height) {
-          this.links.forEach((link) => {
-            link.classList.remove("active")
-            if (link.getAttribute("href") === `#${id}`) {
-              link.classList.add("active")
-            }
-          })
-        }
-      })
-    })
-  }
-}
-
-// Professional Portfolio JavaScript
-
-class PortfolioApp {
-  constructor() {
-    this.navbar = document.getElementById("navbar")
-    this.navToggle = document.getElementById("nav-toggle")
-    this.navMenu = document.getElementById("nav-menu")
-    this.navLinks = document.querySelectorAll(".nav-link")
-
-    this.init()
-  }
-
-  init() {
-    this.setupNavigation()
-    this.setupScrollEffects()
-    this.setupAnimations()
-    this.setupProjectFilter()
-    this.setupContactForm()
-    this.setupSkillBars()
-    this.setupCounters()
-  }
-
-  // Navigation
-  setupNavigation() {
-    // Mobile menu toggle
-    this.navToggle.addEventListener("click", () => {
-      this.navMenu.classList.toggle("active")
-      this.navToggle.classList.toggle("active")
-    })
-
-    // Close mobile menu when clicking on links
-    this.navLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        this.navMenu.classList.remove("active")
-        this.navToggle.classList.remove("active")
-      })
-    })
-
-    // Smooth scrolling for navigation links
-    this.navLinks.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault()
-        const targetId = link.getAttribute("href")
-        const targetSection = document.querySelector(targetId)
-
-        if (targetSection) {
-          const offsetTop = targetSection.offsetTop - 80
-          window.scrollTo({
-            top: offsetTop,
-            behavior: "smooth",
-          })
-        }
-      })
-    })
-  }
-
-  // Scroll Effects
-  setupScrollEffects() {
-    window.addEventListener("scroll", () => {
-      this.handleNavbarScroll()
-      this.handleActiveSection()
-    })
-  }
-
-  handleNavbarScroll() {
-    if (window.scrollY > 100) {
-      this.navbar.classList.add("scrolled")
-    } else {
-      this.navbar.classList.remove("scrolled")
     }
+  })
+})
+
+// Navbar background on scroll
+window.addEventListener("scroll", () => {
+  const navbar = document.querySelector(".navbar")
+  if (window.scrollY > 100) {
+    navbar.style.background = "rgba(255, 255, 255, 0.05)"
+    navbar.style.backdropFilter = "blur(30px)"
+  } else {
+    navbar.style.background = "rgba(255, 255, 255, 0.1)"
+    navbar.style.backdropFilter = "blur(20px)"
   }
+})
 
-  handleActiveSection() {
-    const sections = document.querySelectorAll("section[id]")
-    const scrollPos = window.scrollY + 150
-
-    sections.forEach((section) => {
-      const top = section.offsetTop
-      const height = section.offsetHeight
-      const id = section.getAttribute("id")
-
-      if (scrollPos >= top && scrollPos < top + height) {
-        this.navLinks.forEach((link) => {
-          link.classList.remove("active")
-          if (link.getAttribute("href") === `#${id}`) {
-            link.classList.add("active")
-          }
-        })
-      }
-    })
-  }
-
-  // Animations
-  setupAnimations() {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px",
-    }
-
-    const observer = new IntersectionObserver((entries) => {
+// Animate stats on scroll
+const animateStats = () => {
+  const stats = document.querySelectorAll(".stat-number")
+  const observer = new IntersectionObserver(
+    (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("fade-in-up")
-          observer.unobserve(entry.target)
+          const target = entry.target
+          const finalValue = target.textContent
+          const numericValue = Number.parseInt(finalValue.replace(/\D/g, ""))
+          const suffix = finalValue.replace(/\d/g, "")
+
+          let current = 0
+          const increment = numericValue / 50
+          const timer = setInterval(() => {
+            current += increment
+            if (current >= numericValue) {
+              current = numericValue
+              clearInterval(timer)
+            }
+            target.textContent = Math.floor(current) + suffix
+          }, 30)
+
+          observer.unobserve(target)
         }
       })
-    }, observerOptions)
+    },
+    { threshold: 0.5 },
+  )
 
-    // Observe elements for animation
-    const animateElements = document.querySelectorAll(
-      ".skill-category, .job-card, .project-card, .contact-card, .achievement-item",
-    )
+  stats.forEach((stat) => observer.observe(stat))
+}
 
-    animateElements.forEach((el) => {
-      observer.observe(el)
-    })
-  }
+// Initialize animations when DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+  animateStats()
 
-  // Project Filter
-  setupProjectFilter() {
-    const filterBtns = document.querySelectorAll(".filter-btn")
-    const projectCards = document.querySelectorAll(".project-card")
-
-    filterBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const filter = btn.getAttribute("data-filter")
-
-        // Update active button
-        filterBtns.forEach((b) => b.classList.remove("active"))
-        btn.classList.add("active")
-
-        // Filter projects
-        projectCards.forEach((card) => {
-          const category = card.getAttribute("data-category")
-
-          if (filter === "all" || category === filter) {
-            card.style.display = "block"
-            card.style.animation = "fadeInUp 0.5s ease-out"
-          } else {
-            card.style.display = "none"
-          }
-        })
+  // Add scroll animations to cards
+  const cards = document.querySelectorAll(".skill-card, .experience-card, .project-card")
+  const cardObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = "1"
+          entry.target.style.transform = "translateY(0)"
+        }
       })
-    })
-  }
+    },
+    { threshold: 0.1 },
+  )
 
-  // Contact Form
-  setupContactForm() {
-    const form = document.getElementById("contact-form")
+  cards.forEach((card) => {
+    card.style.opacity = "0"
+    card.style.transform = "translateY(30px)"
+    card.style.transition = "opacity 0.6s ease, transform 0.6s ease"
+    cardObserver.observe(card)
+  })
+})
 
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault()
-      await this.handleFormSubmit(form)
-    })
-  }
+// Download resume function
+function downloadResume() {
+  // You can replace this with actual resume download logic
+  alert("Resume download functionality would be implemented here. Please contact via email for the resume.")
+}
 
-  async handleFormSubmit(form) {
-    const submitBtn = form.querySelector('button[type="submit"]')
-    const originalText = submitBtn.innerHTML
+// Contact form handling (if you add a contact form later)
+document.getElementById("contact-form").addEventListener("submit", function (e) {
+  e.preventDefault()
 
-    // Update button state
-    submitBtn.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>'
-    submitBtn.disabled = true
+  // Get form data
+  const formData = new FormData(this)
+  const data = Object.fromEntries(formData)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+  // Simulate form submission
+  const submitBtn = this.querySelector('button[type="submit"]')
+  const originalText = submitBtn.innerHTML
 
-    // Success state
-    submitBtn.innerHTML = '<span>Message Sent!</span><i class="fas fa-check"></i>'
-    submitBtn.style.background = "var(--gradient-secondary)"
+  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...'
+  submitBtn.disabled = true
 
-    // Reset form after delay
+  setTimeout(() => {
+    submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!'
+    submitBtn.style.background = "linear-gradient(135deg, #00ff88, #00d4ff)"
+
     setTimeout(() => {
       submitBtn.innerHTML = originalText
       submitBtn.disabled = false
       submitBtn.style.background = ""
-      form.reset()
-
-      // Show success message
-      this.showNotification("Message sent successfully! I'll get back to you soon.", "success")
+      this.reset()
     }, 2000)
-  }
-
-  // Skill Bars Animation
-  setupSkillBars() {
-    const skillItems = document.querySelectorAll(".skill-item")
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const progressBar = entry.target.querySelector(".skill-progress")
-            const width = progressBar.getAttribute("data-width")
-
-            setTimeout(() => {
-              progressBar.style.width = `${width}%`
-            }, 200)
-
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.5 },
-    )
-
-    skillItems.forEach((item) => observer.observe(item))
-  }
-
-  // Counter Animation
-  setupCounters() {
-    const counters = document.querySelectorAll(".stat-number")
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            this.animateCounter(entry.target)
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.5 },
-    )
-
-    counters.forEach((counter) => observer.observe(counter))
-  }
-
-  animateCounter(element) {
-    const target = Number.parseInt(element.getAttribute("data-target"))
-    const duration = 2000
-    const step = target / (duration / 16)
-    let current = 0
-
-    const timer = setInterval(() => {
-      current += step
-      if (current >= target) {
-        element.textContent = target
-        clearInterval(timer)
-      } else {
-        element.textContent = Math.floor(current)
-      }
-    }, 16)
-  }
-
-  // Utility Functions
-  showNotification(message, type = "info") {
-    const notification = document.createElement("div")
-    notification.className = `notification notification-${type}`
-    notification.innerHTML = `
-      <div class="notification-content">
-        <i class="fas fa-${type === "success" ? "check-circle" : "info-circle"}"></i>
-        <span>${message}</span>
-      </div>
-    `
-
-    // Add styles
-    notification.style.cssText = `
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: ${type === "success" ? "var(--secondary-color)" : "var(--primary-color)"};
-      color: white;
-      padding: 1rem 1.5rem;
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-lg);
-      z-index: 10000;
-      transform: translateX(100%);
-      transition: var(--transition-normal);
-    `
-
-    document.body.appendChild(notification)
-
-    // Animate in
-    setTimeout(() => {
-      notification.style.transform = "translateX(0)"
-    }, 100)
-
-    // Remove after delay
-    setTimeout(() => {
-      notification.style.transform = "translateX(100%)"
-      setTimeout(() => {
-        document.body.removeChild(notification)
-      }, 300)
-    }, 4000)
-  }
-}
-
-// Smooth scrolling for navigation links
-function scrollToSection(sectionId) {
-  const section = document.getElementById(sectionId)
-  if (section) {
-    const offsetTop = section.offsetTop - 80
-    window.scrollTo({
-      top: offsetTop,
-      behavior: "smooth",
-    })
-  }
-}
-
-// Stats Counter Animation
-class StatsCounter {
-  constructor() {
-    this.counters = document.querySelectorAll(".stat-number")
-    this.init()
-  }
-
-  init() {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            this.animateCounter(entry.target)
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.5 },
-    )
-
-    this.counters.forEach((counter) => observer.observe(counter))
-  }
-
-  animateCounter(element) {
-    const target = Number.parseInt(element.getAttribute("data-target"))
-    const duration = 2000
-    const step = target / (duration / 16)
-    let current = 0
-
-    const timer = setInterval(() => {
-      current += step
-      if (current >= target) {
-        element.textContent = target
-        clearInterval(timer)
-      } else {
-        element.textContent = Math.floor(current)
-      }
-    }, 16)
-  }
-}
-
-// Skill Bars Animation
-class SkillBars {
-  constructor() {
-    this.skillItems = document.querySelectorAll(".skill-item")
-    this.init()
-  }
-
-  init() {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const progressBar = entry.target.querySelector(".skill-progress")
-            const level = entry.target.getAttribute("data-level")
-
-            setTimeout(() => {
-              progressBar.style.width = `${level}%`
-            }, 200)
-
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.5 },
-    )
-
-    this.skillItems.forEach((item) => observer.observe(item))
-  }
-}
-
-// Audio Effects
-class AudioEffects {
-  constructor() {
-    this.hoverSound = document.getElementById("hover-sound")
-    this.init()
-  }
-
-  init() {
-    // Add hover sound to interactive elements
-    document.querySelectorAll("button, .nav-link, .project-card").forEach((el) => {
-      el.addEventListener("mouseenter", () => {
-        this.playHoverSound()
-      })
-    })
-  }
-
-  playHoverSound() {
-    if (this.hoverSound) {
-      this.hoverSound.currentTime = 0
-      this.hoverSound.play().catch(() => {
-        // Handle autoplay restrictions
-      })
-    }
-  }
-}
-
-// Scroll Animations
-class ScrollAnimations {
-  constructor() {
-    this.elements = document.querySelectorAll(".skill-category, .job-card, .project-card, .contact-card")
-    this.init()
-  }
-
-  init() {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("fade-in-up")
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.1 },
-    )
-
-    this.elements.forEach((el) => observer.observe(el))
-  }
-}
-
-// Particle System
-class ParticleSystem {
-  constructor() {
-    this.particles = []
-    this.init()
-  }
-
-  init() {
-    // Add particles to buttons on hover
-    document.querySelectorAll(".cyber-btn").forEach((btn) => {
-      btn.addEventListener("mouseenter", () => {
-        this.createParticles(btn)
-      })
-    })
-  }
-
-  createParticles(element) {
-    const rect = element.getBoundingClientRect()
-
-    for (let i = 0; i < 5; i++) {
-      const particle = document.createElement("div")
-      particle.style.position = "absolute"
-      particle.style.width = "2px"
-      particle.style.height = "2px"
-      particle.style.background = "#00ffff"
-      particle.style.borderRadius = "50%"
-      particle.style.pointerEvents = "none"
-      particle.style.left = `${rect.left + Math.random() * rect.width}px`
-      particle.style.top = `${rect.top + Math.random() * rect.height}px`
-      particle.style.zIndex = "9999"
-
-      document.body.appendChild(particle)
-
-      // Animate particle
-      particle.animate(
-        [
-          { transform: "translate(0, 0)", opacity: 1 },
-          { transform: `translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px)`, opacity: 0 },
-        ],
-        {
-          duration: 1000,
-          easing: "ease-out",
-        },
-      ).onfinish = () => {
-        particle.remove()
-      }
-    }
-  }
-}
-
-// Initialize everything when DOM is loaded
-document.addEventListener("DOMContentLoaded", () => {
-  // Initialize all components
-  new CyberNav()
-  new PortfolioApp()
-
-  // Add loading animation
-  document.body.style.opacity = "0"
-  document.body.style.transform = "translateY(20px)"
-
-  setTimeout(() => {
-    document.body.style.transition = "all 0.6s ease"
-    document.body.style.opacity = "1"
-    document.body.style.transform = "translateY(0)"
-  }, 100)
+  }, 1500)
 })
 
-// Matrix Rain Effect
-class MatrixRain {
-  constructor() {
-    this.canvas = document.getElementById("matrix-canvas")
-    this.ctx = this.canvas.getContext("2d")
-    this.chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()"
-    this.fontSize = 14
-    this.columns = 0
-    this.drops = []
+// Add typing effect to hero subtitle
+function typeWriter(element, text, speed = 100) {
+  let i = 0
+  element.innerHTML = ""
 
-    this.init()
-    this.animate()
-  }
-
-  init() {
-    this.canvas.width = window.innerWidth
-    this.canvas.height = window.innerHeight
-    this.columns = Math.floor(this.canvas.width / this.fontSize)
-
-    for (let i = 0; i < this.columns; i++) {
-      this.drops[i] = Math.random() * this.canvas.height
+  function type() {
+    if (i < text.length) {
+      element.innerHTML += text.charAt(i)
+      i++
+      setTimeout(type, speed)
     }
   }
 
-  animate() {
-    this.ctx.fillStyle = "rgba(10, 10, 10, 0.05)"
-    this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height)
-
-    this.ctx.fillStyle = "#00ffff"
-    this.ctx.font = `${this.fontSize}px 'Fira Code', monospace`
-
-    for (let i = 0; i < this.drops.length; i++) {
-      const char = this.chars[Math.floor(Math.random() * this.chars.length)]
-      this.ctx.fillText(char, i * this.fontSize, this.drops[i])
-
-      if (this.drops[i] > this.canvas.height && Math.random() > 0.975) {
-        this.drops[i] = 0
-      }
-      this.drops[i] += this.fontSize
-    }
-
-    requestAnimationFrame(() => this.animate())
-  }
-
-  resize() {
-    this.init()
-  }
+  type()
 }
+
+// Initialize typing effect
+window.addEventListener("load", () => {
+  const subtitle = document.querySelector(".hero-subtitle")
+  if (subtitle) {
+    const originalText = subtitle.textContent
+    typeWriter(subtitle, originalText, 80)
+  }
+})
+
+// Add parallax effect to hero section
+window.addEventListener("scroll", () => {
+  const scrolled = window.pageYOffset
+  const parallaxElements = document.querySelectorAll(".gradient-orb")
+
+  parallaxElements.forEach((element, index) => {
+    const speed = 0.5 + index * 0.1
+    element.style.transform = `translateY(${scrolled * speed}px)`
+  })
+})
+
+// Add hover effects to project cards
+document.querySelectorAll(".project-card").forEach((card) => {
+  card.addEventListener("mouseenter", function () {
+    this.style.transform = "translateY(-15px) scale(1.02)"
+  })
+
+  card.addEventListener("mouseleave", function () {
+    this.style.transform = "translateY(0) scale(1)"
+  })
+})
+
+// Add click handlers for external links
+document.querySelectorAll(".fa-external-link-alt").forEach((icon) => {
+  icon.addEventListener("click", (e) => {
+    e.preventDefault()
+    // You can add actual project URLs here
+    alert("Project demo would open here. Contact me for live demos!")
+  })
+})
 
 // Custom Cursor
-class CyberCursor {
-  constructor() {
-    this.cursor = document.querySelector(".cyber-cursor")
-    this.core = document.querySelector(".cursor-core")
-    this.ring = document.querySelector(".cursor-ring")
-    this.trail = document.querySelector(".cursor-trail")
+const cursorDot = document.querySelector("[data-cursor-dot]")
+const cursorOutline = document.querySelector("[data-cursor-outline]")
 
-    this.mouseX = 0
-    this.mouseY = 0
-    this.trailX = 0
-    this.trailY = 0
+window.addEventListener("mousemove", (e) => {
+  const posX = e.clientX
+  const posY = e.clientY
 
-    this.init()
-  }
+  cursorDot.style.left = `${posX}px`
+  cursorDot.style.top = `${posY}px`
 
-  init() {
-    document.addEventListener("mousemove", (e) => {
-      this.mouseX = e.clientX
-      this.mouseY = e.clientY
+  cursorOutline.style.left = `${posX}px`
+  cursorOutline.style.top = `${posY}px`
+})
 
-      this.core.style.left = `${this.mouseX}px`
-      this.core.style.top = `${this.mouseY}px`
+// Magnetic Effect
+document.querySelectorAll(".magnetic").forEach((element) => {
+  element.addEventListener("mouseenter", (e) => {
+    element.style.transform = "scale(1.1)"
+  })
 
-      this.ring.style.left = `${this.mouseX}px`
-      this.ring.style.top = `${this.mouseY}px`
-    })
+  element.addEventListener("mouseleave", (e) => {
+    element.style.transform = "scale(1)"
+  })
 
-    // Smooth trail animation
-    this.animateTrail()
+  element.addEventListener("mousemove", (e) => {
+    const rect = element.getBoundingClientRect()
+    const x = e.clientX - rect.left - rect.width / 2
+    const y = e.clientY - rect.top - rect.height / 2
 
-    // Hover effects
-    document.querySelectorAll("a, button, .project-card, .skill-item").forEach((el) => {
-      el.addEventListener("mouseenter", () => {
-        this.ring.style.transform = "translate(-50%, -50%) scale(1.5)"
-        this.ring.style.borderColor = "#ff0080"
-      })
+    element.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px) scale(1.1)`
+  })
+})
 
-      el.addEventListener("mouseleave", () => {
-        this.ring.style.transform = "translate(-50%, -50%) scale(1)"
-        this.ring.style.borderColor = "#00ffff"
-      })
-    })
-  }
+// Animated Counter
+function animateCounter(element, target, duration = 2000) {
+  let start = 0
+  const increment = target / (duration / 16)
 
-  animateTrail() {
-    this.trailX += (this.mouseX - this.trailX) * 0.1
-    this.trailY += (this.mouseY - this.trailY) * 0.1
-
-    this.trail.style.left = `${this.trailX}px`
-    this.trail.style.top = `${this.trailY}px`
-
-    requestAnimationFrame(() => this.animateTrail())
-  }
-}
-
-// Terminal Typing Effect
-class TerminalTyper {
-  constructor() {
-    this.commands = ["whoami", "cat skills.txt", "ls projects/", "git status", "npm run build", "./deploy.sh"]
-    this.currentCommand = 0
-    this.currentChar = 0
-    this.isDeleting = false
-    this.typeSpeed = 100
-    this.deleteSpeed = 50
-    this.pauseTime = 2000
-
-    this.element = document.getElementById("typing-command")
-    this.outputElement = document.getElementById("terminal-output")
-
-    this.init()
-  }
-
-  init() {
-    this.type()
-    this.generateOutput()
-  }
-
-  type() {
-    const current = this.commands[this.currentCommand]
-
-    if (this.isDeleting) {
-      this.element.textContent = current.substring(0, this.currentChar - 1)
-      this.currentChar--
+  const timer = setInterval(() => {
+    start += increment
+    if (start >= target) {
+      element.textContent = target
+      clearInterval(timer)
     } else {
-      this.element.textContent = current.substring(0, this.currentChar + 1)
-      this.currentChar++
+      element.textContent = Math.floor(start)
     }
+  }, 16)
+}
 
-    let typeSpeed = this.isDeleting ? this.deleteSpeed : this.typeSpeed
+// Intersection Observer for animations
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: "0px 0px -50px 0px",
+}
 
-    if (!this.isDeleting && this.currentChar === current.length) {
-      typeSpeed = this.pauseTime
-      this.isDeleting = true
-    } else if (this.isDeleting && this.currentChar === 0) {
-      this.isDeleting = false
-      this.currentCommand = (this.currentCommand + 1) % this.commands.length
-    }
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("fade-in-up")
 
-    setTimeout(() => this.type(), typeSpeed)
-  }
-
-  generateOutput() {
-    const outputs = [
-      "Muhammad Tayyab - Senior Full-Stack Developer",
-      "Skills: .NET Core, React, Angular, Azure, SQL Server",
-      "Aventra Digital Platform, Coto Creator Community, Ahealo Medical",
-      "On branch main - Your branch is up to date",
-      "Build successful! Ready for deployment",
-      "Deployment complete! Application is live",
-    ]
-
-    setInterval(() => {
-      const randomOutput = outputs[Math.floor(Math.random() * outputs.length)]
-      const outputLine = document.createElement("div")
-      outputLine.className = "output-line"
-      outputLine.textContent = `> ${randomOutput}`
-
-      this.outputElement.appendChild(outputLine)
-
-      // Keep only last 5 lines
-      while (this.outputElement.children.length > 5) {
-        this.outputElement.removeChild(this.outputElement.firstChild)
+      // Animate counters
+      if (entry.target.hasAttribute("data-count")) {
+        const target = Number.parseInt(entry.target.getAttribute("data-count"))
+        animateCounter(entry.target, target)
       }
-    }, 5000)
-  }
-}
 
-// Download resume function
-function downloadResume() {
-  // Create a temporary link element
-  const link = document.createElement("a")
-  link.href = "#" // Replace with actual resume URL
-  link.download = "Muhammad_Tayyab_Resume.pdf"
-
-  // Show notification instead of actual download
-  const app = new PortfolioApp()
-  app.showNotification("Resume download would be implemented here. Please contact via email for the resume.", "info")
-}
-
-// Smooth Scroll Polyfill for older browsers
-if (!("scrollBehavior" in document.documentElement.style)) {
-  const smoothScrollPolyfill = () => {
-    const links = document.querySelectorAll('a[href^="#"]')
-
-    links.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault()
-        const targetId = link.getAttribute("href")
-        const targetSection = document.querySelector(targetId)
-
-        if (targetSection) {
-          const offsetTop = targetSection.offsetTop - 80
-          const startPosition = window.pageYOffset
-          const distance = offsetTop - startPosition
-          const duration = 1000
-          let start = null
-
-          const step = (timestamp) => {
-            if (!start) start = timestamp
-            const progress = timestamp - start
-            const progressPercentage = Math.min(progress / duration, 1)
-
-            // Easing function
-            const ease =
-              progressPercentage < 0.5
-                ? 2 * progressPercentage * progressPercentage
-                : 1 - Math.pow(-2 * progressPercentage + 2, 3) / 2
-
-            window.scrollTo(0, startPosition + distance * ease)
-
-            if (progress < duration) {
-              requestAnimationFrame(step)
-            }
-          }
-
-          requestAnimationFrame(step)
+      // Animate skill bars
+      if (entry.target.classList.contains("skill-item")) {
+        const progressBar = entry.target.querySelector(".skill-progress")
+        if (progressBar) {
+          progressBar.style.animation = "fillBar 2s ease-out"
         }
-      })
-    })
-  }
+      }
 
-  smoothScrollPolyfill()
-}
-
-// Handle window resize
-window.addEventListener("resize", () => {
-  // Close mobile menu on resize
-  const navMenu = document.getElementById("nav-menu")
-  const navToggle = document.getElementById("nav-toggle")
-
-  if (window.innerWidth > 768) {
-    navMenu.classList.remove("active")
-    navToggle.classList.remove("active")
-  }
-})
-
-// Keyboard navigation
-document.addEventListener("keydown", (e) => {
-  // Close mobile menu with Escape key
-  if (e.key === "Escape") {
-    const navMenu = document.getElementById("nav-menu")
-    const navToggle = document.getElementById("nav-toggle")
-
-    navMenu.classList.remove("active")
-    navToggle.classList.remove("active")
-  }
-})
-
-// Performance optimization
-const debounce = (func, wait) => {
-  let timeout
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout)
-      func(...args)
+      observer.unobserve(entry.target)
     }
-    clearTimeout(timeout)
-    timeout = setTimeout(later, wait)
-  }
+  })
+}, observerOptions)
+
+// Observe elements for animation
+document
+  .querySelectorAll(".stat-number, .skill-item, .timeline-content, .project-card, .achievement-card")
+  .forEach((el) => {
+    observer.observe(el)
+  })
+
+// Typing Effect for Code Window
+function typeCode() {
+  const codeLines = document.querySelectorAll(".code-line .code-text")
+
+  codeLines.forEach((line, index) => {
+    const text = line.textContent
+    line.textContent = ""
+
+    setTimeout(() => {
+      let i = 0
+      const typeInterval = setInterval(() => {
+        if (i < text.length) {
+          line.textContent += text.charAt(i)
+          i++
+        } else {
+          clearInterval(typeInterval)
+        }
+      }, 50)
+    }, index * 500)
+  })
 }
 
-// Debounced scroll handler for better performance
-const handleScroll = debounce(() => {
-  // Additional scroll-based functionality can be added here
-}, 16)
+// Initialize animations on load
+window.addEventListener("load", () => {
+  // Start typing effect after a delay
+  setTimeout(typeCode, 1000)
 
-window.addEventListener("scroll", handleScroll)
+  // Add loading class removal
+  document.body.classList.remove("loading")
+})
 
-// Add CSS for notification styles
-const notificationStyles = `
-  .notification-content {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  
-  .notification-content i {
-    font-size: 1.2rem;
-  }
+// Add glitch effect to title on hover
+const heroTitle = document.querySelector(".title-name")
+if (heroTitle) {
+  heroTitle.addEventListener("mouseenter", function () {
+    this.style.animation = "glitch 0.5s ease-in-out"
+  })
+
+  heroTitle.addEventListener("animationend", function () {
+    this.style.animation = "glow 3s ease-in-out infinite alternate"
+  })
+}
+
+// Add CSS for glitch effect
+const glitchCSS = `
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
 `
 
-const styleSheet = document.createElement("style")
-styleSheet.textContent = notificationStyles
-document.head.appendChild(styleSheet)
+const style = document.createElement("style")
+style.textContent = glitchCSS
+document.head.appendChild(style)
 
-// Add gradient definition for SVG
-const svgGradient = `
-  <svg width="0" height="0" style="position: absolute;">
-    <defs>
-      <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
-        <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
-      </linearGradient>
-    </defs>
-  </svg>
-`
+// Preloader
+window.addEventListener("load", () => {
+  const preloader = document.createElement("div")
+  preloader.className = "preloader"
+  preloader.innerHTML = `
+    <div class="preloader-content">
+      <div class="preloader-logo">MT</div>
+      <div class="preloader-text">Loading Excellence...</div>
+    </div>
+  `
 
-document.body.insertAdjacentHTML("afterbegin", svgGradient)
+  const preloaderCSS = `
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--dark-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      transition: opacity 0.5s ease;
+    }
+    
+    .preloader-content {
+      text-align: center;
+    }
+    
+    .preloader-logo {
+      font-size: 4rem;
+      font-weight: 900;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      animation: pulse 2s infinite;
+    }
+    
+    .preloader-text {
+      color: var(--text-secondary);
+      font-size: 1.2rem;
+    }
+  `
+
+  const preloaderStyle = document.createElement("style")
+  preloaderStyle.textContent = preloaderCSS
+  document.head.appendChild(preloaderStyle)
+
+  document.body.appendChild(preloader)
+
+  setTimeout(() => {
+    preloader.style.opacity = "0"
+    setTimeout(() => {
+      preloader.remove()
+    }, 500)
+  }, 2000)
+})
